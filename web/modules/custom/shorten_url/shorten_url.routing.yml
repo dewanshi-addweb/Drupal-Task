@@ -1,0 +1,35 @@
+shorten_url.form:
+  path: '/shorten-url-form'
+  defaults:
+    _form: '\Drupal\shorten_url\Form\ShortenUrlForm'
+    _title: 'Shorten URL'
+  requirements:
+    _permission: 'access content'
+
+
+
+shorten_url.list:
+  path: '/short-url-list'
+  defaults:
+    _controller: '\Drupal\shorten_url\Controller\ShortenUrlListController::content'
+    _title: 'Shortened URLs'
+  requirements:
+    _permission: 'access content'
+
+shorten_url.view_details:
+  path: '/view-details/{id}'
+  defaults:
+    _controller: '\Drupal\shorten_url\Controller\ShortenUrlController::viewDetailsPage'
+    _title: 'Short Link Details'
+  requirements:
+    _permission: 'access content'
+
+
+shorten_url.short_link_redirect:
+  path: '/short/{shortcode}'
+  defaults:
+    _controller: '\Drupal\shorten_url\Controller\ShortenUrlController::shortLinkRedirect'
+  requirements:
+    _permission: 'access content'
+
+

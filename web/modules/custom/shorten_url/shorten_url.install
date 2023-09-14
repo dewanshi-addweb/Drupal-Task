@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Install, update for the shorten_url module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function shorten_url_schema() {
+  $schema['shorte_url'] = [
+    'description' => 'Stores shortened URL data.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => true,
+        'description' => 'The primary key for the shortened URL entry.',
+      ],
+      'source_url' => [
+        'type' => 'text',
+        'not null' => true,
+        'description' => 'The original (long) URL.',
+      ],
+      'short_url' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => true,
+        'description' => 'The shortened URL identifier.',
+      ],
+    
+    'visited_count' => [
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+      'description' => 'Number of times the short link has been visited.',
+    ],
+    'date' => array(
+        'description' => t('The date and time when the entry was created'),
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+

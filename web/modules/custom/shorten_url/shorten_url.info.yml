@@ -1,0 +1,5 @@
+name: 'Shorten URL'
+type: module
+description: 'Provides URL shortening functionality.'
+core_version_requirement: ^9 || ^10
+package: Custom
