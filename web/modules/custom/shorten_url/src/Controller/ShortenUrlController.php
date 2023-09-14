@@ -42,7 +42,13 @@ class ShortenUrlController extends ControllerBase {
       'visited_count' => [
         '#markup' => '<div>' . $this->t('Visited Count') . ': ' . $result->visited_count . '</div>',
       ],
+      '#cache' => array(
+        'max-age' => 0,
+      ),
     ];
+
+
+
 
     return $output;
 }
